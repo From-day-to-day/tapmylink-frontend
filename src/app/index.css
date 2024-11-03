@@ -1,0 +1,22 @@
+:root {
+  --dark-color: #000028;
+  --light-color: #d0d0d0;
+  --accent-color: #ad79d3;
+}
+
+:root {
+  --max-body-width: 320px;
+}
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: var(--max-body-width);
+  color-scheme: dark;
+}
+
+a {
+  color: var(--accent-color);
+  text-underline-offset: 0.2em;
+}
