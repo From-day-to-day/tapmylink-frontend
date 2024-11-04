@@ -2,6 +2,7 @@
   --dark-color: #000028;
   --light-color: #d0d0d0;
   --accent-color: #ad79d3;
+  --overlay-light: rgba(255, 255, 255, 0.075);
 }
 
 :root {

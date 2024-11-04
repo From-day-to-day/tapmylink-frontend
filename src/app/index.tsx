@@ -1,5 +1,17 @@
-import { render } from 'preact'
-import './index.css'
-import { App } from './App.tsx'
+import { render } from 'preact';
+import './index.css';
+import { SWRConfig } from 'swr';
+import { swrConfig } from './_configs/swrConfig';
+import { App } from './App';
+import { ErrorBoundary, LanguageProvider } from '@/features';
 
-render(<App />, document.getElementById('app')!)
+render(
+  <LanguageProvider>
+    <ErrorBoundary>
+      <SWRConfig value={swrConfig}>
+        <App />
+      </SWRConfig>
+    </ErrorBoundary>
+  </LanguageProvider>,
+  document.getElementById('app')!,
+);
