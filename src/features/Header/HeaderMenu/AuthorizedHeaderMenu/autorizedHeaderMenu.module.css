@@ -1,0 +1,9 @@
+.activeLink {
+    filter: drop-shadow(0px 6px 7px currentColor);
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.logoutLink {
+    filter: brightness(0.5);
+}

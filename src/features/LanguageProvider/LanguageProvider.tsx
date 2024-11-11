@@ -12,9 +12,11 @@ export const LanguageProvider = ({ children }: PropsWithChildren) => {
   const contextValue = useMemo(() => ({ language, setLanguage }), [language]);
 
   useEffect(() => {
-    const inferredLanguage = location.split('/')[1] as ELanguage;
+    const languageInPath = location.split('/')[1] as ELanguage;
+    const currentLanguage = languageInPath in ELanguage ? languageInPath : ELanguage.en;
 
-    setLanguage(inferredLanguage in ELanguage ? inferredLanguage : ELanguage.en);
+    document.documentElement.lang = currentLanguage;
+    setLanguage(currentLanguage);
   }, [location]);
 
   if (!contextValue.language) return <Loader />;

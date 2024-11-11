@@ -6,7 +6,7 @@
     width: calc(var(--max-body-width) - var(--error-dialog-indent) * 2);
     max-height: calc(100% - var(--error-dialog-indent) * 2);
     margin: 0;
-    box-shadow: 0 0 2rem var(--accent-color);
+    box-shadow: 0 0 2rem var(--primary-color);
 }
 
 .errorDialog__header {

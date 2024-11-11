@@ -27,19 +27,19 @@
 }
 
 .button_contained {
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     color: var(--dark-color);
 }
 
 .button_outlined {
     background-color: transparent;
-    color: var(--accent-color);
-    border-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: currentColor;
 }
 
 .button_text {
     background-color: rgba(255, 255, 255, 0.05);
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .button_small {

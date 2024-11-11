@@ -1,7 +1,7 @@
 import { render } from 'preact';
 import './index.css';
 import { SWRConfig } from 'swr';
-import { swrConfig } from './_configs/swrConfig';
+import { swrConfig } from './_configs';
 import { App } from './App';
 import { ErrorBoundary, LanguageProvider } from '@/features';
 
