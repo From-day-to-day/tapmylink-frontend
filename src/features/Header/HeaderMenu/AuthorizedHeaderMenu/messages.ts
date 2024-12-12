@@ -2,17 +2,17 @@ import { ELanguage } from '@/shared/enums';
 
 export default {
   [ELanguage.ru]: {
-    myContactCardsMenuItem: 'Мои визитки',
+    myCardsMenuItem: 'Мои визитки',
     plansMenuItem: 'Тарифы',
     logoutMenuItem: 'Выйти из аккаунта',
   },
   [ELanguage.en]: {
-    myContactCardsMenuItem: 'My contact cards',
+    myCardsMenuItem: 'My cards',
     plansMenuItem: 'Plans',
     logoutMenuItem: 'Logout',
   },
   [ELanguage.es]: {
-    myContactCardsMenuItem: 'Mis tarjetas de contacto',
+    myCardsMenuItem: 'Mis tarjetas',
     plansMenuItem: 'Planes',
     logoutMenuItem: 'Cerrar sesión',
   },

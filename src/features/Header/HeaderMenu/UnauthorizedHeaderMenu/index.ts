@@ -1,1 +1,1 @@
-export { UnauthorizedHeaderMenu } from './UnauthorizedHeaderMenu';
+export * from './UnauthorizedHeaderMenu';

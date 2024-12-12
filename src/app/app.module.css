@@ -1,19 +1,16 @@
 .app {
-    --app-padding: clamp(1rem, 4vw, 1.5rem);
-    --app-gap: clamp(4rem, 4vw, 5.5rem);
-
-    display: flex;
-    flex-direction: column;
-    padding: var(--app-padding);
-    min-height: calc(100vh - var(--app-padding) * 2);
-    background-color: var(--dark-color);
+  display: flex;
+  flex-direction: column;
+  padding: var(--app-padding);
+  min-height: calc(100vh - var(--app-padding) * 2);
+  background-color: var(--dark-color);
 }
 
 .app__header {
-    margin-bottom: var(--app-gap);
+  margin-bottom: clamp(3rem, 4vw, 5rem);
 }
 
 .app__footer {
-    margin-top: auto;
-    padding-top: var(--app-gap);
+  margin-top: auto;
+  padding-top: var(--app-gap);
 }

@@ -1,51 +1,55 @@
 .button {
-    font-size: 0.75rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: filter 0.25s;
+  padding: 1em 2em;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: filter 0.25s;
 }
 
 .button:hover {
-    filter: brightness(1.25);
-    cursor: pointer;
+  filter: brightness(1.25);
+  cursor: pointer;
 }
 
 .button:active,
 .button:focus-visible {
-    filter: brightness(1.5);
+  filter: brightness(1.5);
 }
 
 .button:focus-visible {
-    outline-width: 0;
+  outline-width: 0;
 }
 
 .button:disabled {
-    filter: brightness(0.5);
-    cursor: not-allowed;
+  filter: brightness(0.5);
+  cursor: not-allowed;
 }
 
 .button_contained {
-    background-color: var(--primary-color);
-    color: var(--dark-color);
+  background-color: var(--primary-color);
+  box-shadow: 0.35em 0.35em 0 0 var(--secondary-color);
+  color: var(--dark-color);
 }
 
 .button_outlined {
-    background-color: transparent;
-    color: var(--primary-color);
-    border-color: currentColor;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 0.25em solid currentColor;
 }
 
 .button_text {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--primary-color);
 }
 
 .button_small {
-    padding: 0.25rem 0.5rem;
+  font-size: 0.5rem;
 }
 
 .button_medium {
-    padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.button_large {
+  font-size: 1rem;
 }

@@ -1,1 +1,1 @@
-export { HeaderLanguageSwitcher } from './HeaderLanguageSwitcher';
+export * from './HeaderLanguageSwitcher';

@@ -1,1 +1,1 @@
-export { HeaderMenu } from './HeaderMenu';
+export * from './HeaderMenu';

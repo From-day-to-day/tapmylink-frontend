@@ -5,12 +5,18 @@ import { useLanguage } from '@/shared/hooks';
 import { ErrorResponse } from '@/shared/models';
 import { fetcher } from '@/shared/utils';
 
-export const useErrorHandler = (setErrors: Dispatch<StateUpdater<string[]>>) => {
+export const useErrorHandler = (
+  setErrors: Dispatch<StateUpdater<string[]>>,
+) => {
   const { language } = useLanguage();
 
   useEffect(() => {
     const registerError = (errorMessage: string) => {
-      setErrors((prevState) => [...prevState, errorMessage]);
+      setErrors((prevState) =>
+        prevState.includes(errorMessage)
+          ? prevState
+          : [...prevState, errorMessage],
+      );
     };
 
     const sendLog = (errorMessage: string) => {
@@ -32,7 +38,11 @@ export const useErrorHandler = (setErrors: Dispatch<StateUpdater<string[]>>) => 
         const errorMessage = e.reason.message;
 
         if (errorMessage in currentLanguageMessages) {
-          registerError(currentLanguageMessages[errorMessage as keyof typeof currentLanguageMessages]());
+          registerError(
+            currentLanguageMessages[
+              errorMessage as keyof typeof currentLanguageMessages
+            ](),
+          );
         } else {
           registerError(e.reason.message);
           sendLog(errorMessage);

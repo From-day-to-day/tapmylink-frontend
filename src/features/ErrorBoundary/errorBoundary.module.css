@@ -1,22 +1,22 @@
 .errorDialog {
-    --error-dialog-indent: 1rem;
+  --error-dialog-indent: 1rem;
 
-    left: var(--error-dialog-indent);
-    bottom: var(--error-dialog-indent);
-    width: calc(var(--max-body-width) - var(--error-dialog-indent) * 2);
-    max-height: calc(100% - var(--error-dialog-indent) * 2);
-    margin: 0;
-    box-shadow: 0 0 2rem var(--primary-color);
+  left: var(--error-dialog-indent);
+  bottom: var(--error-dialog-indent);
+  width: calc(var(--max-body-width) - var(--error-dialog-indent) * 2);
+  max-height: calc(100% - var(--error-dialog-indent) * 2);
+  margin: 0;
+  box-shadow: 0 0 2rem var(--primary-color);
 }
 
 .errorDialog__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: clamp(0.5rem, 4vw, 1.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: clamp(0.5rem, 4vw, 1.5rem);
 }
 
 .errorDialog__list {
-    display: grid;
-    gap: 1rem;
+  display: grid;
+  gap: 1rem;
 }

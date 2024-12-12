@@ -1,5 +1,5 @@
 import { mutate } from 'swr';
-import { ACCOUNT_API_KEY } from '../consts';
+import { ACCOUNT_API_PATH } from '../consts';
 import { ErrorResponse } from '@/shared/models';
 
 export const fetcher = async <T>(
@@ -21,8 +21,8 @@ export const fetcher = async <T>(
     return (await response.json()) as T;
   }
 
-  if (url !== ACCOUNT_API_KEY && response.status === 401) {
-    await mutate(ACCOUNT_API_KEY);
+  if (url !== ACCOUNT_API_PATH && response.status === 401) {
+    await mutate(ACCOUNT_API_PATH);
   }
 
   const error = (await response.json()) as ErrorResponse;

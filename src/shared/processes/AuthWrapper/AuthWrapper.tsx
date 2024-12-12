@@ -1,39 +1,74 @@
 import { FC, memo } from 'preact/compat';
-import useSWR, { KeyedMutator } from 'swr';
+import useSWR from 'swr';
+import { AuthorizedComponentProps } from './_models';
 import messages from './messages';
 import { Error, Loader } from '@/shared/components';
-import { ACCOUNT_API_KEY, DAY_IN_MS } from '@/shared/consts';
+import { ACCOUNT_API_PATH, DAY_IN_MS } from '@/shared/consts';
 import { useLanguage } from '@/shared/hooks';
-import { ErrorResponse, User } from '@/shared/models';
+import { ErrorResponse, Tariff, User } from '@/shared/models';
+import { rethrowErrorAsync } from '@/shared/utils';
 
-interface Props {
-  AuthorizedComponent: FC<{ authorizedData: User; authorizedMutate: KeyedMutator<User> }>;
+export interface AuthWrapperProps {
+  AuthorizedComponent: FC<AuthorizedComponentProps>;
   UnauthorizedComponent?: FC;
+  needTariffData?: boolean;
 }
 
-export const AuthWrapper = memo(({ AuthorizedComponent, UnauthorizedComponent }: Props) => {
-  const { data, error, isLoading, mutate } = useSWR<User, ErrorResponse>(ACCOUNT_API_KEY, {
-    // 1 день не делать запросы повторно. revalidateIfStale был бы лучше, но он триггерит лишние перерендеры
-    dedupingInterval: DAY_IN_MS,
-  });
+export const AuthWrapper = memo(
+  ({
+    AuthorizedComponent,
+    UnauthorizedComponent,
+    needTariffData,
+  }: AuthWrapperProps) => {
+    const { language } = useLanguage();
 
-  const { language } = useLanguage();
+    const {
+      data: userData,
+      error: userError,
+      isLoading: isUserLoading,
+      mutate: userMutate,
+    } = useSWR<User, ErrorResponse>(ACCOUNT_API_PATH, {
+      // 1 день не делать запросы повторно. revalidateIfStale был бы лучше, но он триггерит лишние перерендеры
+      dedupingInterval: DAY_IN_MS,
+    });
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (error) {
-    return UnauthorizedComponent ? (
-      <UnauthorizedComponent />
-    ) : (
-      <Error message={messages[language].unauthorizedErrorMessage} />
+    const {
+      data: tariffData,
+      error: tariffError,
+      isLoading: isTariffLoading,
+    } = useSWR<Tariff, ErrorResponse>(
+      userData && needTariffData ? 'tariffs/current' : null,
+      {
+        dedupingInterval: DAY_IN_MS,
+      },
     );
-  }
 
-  if (data) {
-    return <AuthorizedComponent authorizedData={data} authorizedMutate={mutate} />;
-  }
+    if (isUserLoading || isTariffLoading) {
+      return <Loader />;
+    }
 
-  return null;
-});
+    if (tariffError) {
+      rethrowErrorAsync(tariffError);
+    }
+
+    if (userError || tariffError) {
+      return UnauthorizedComponent ? (
+        <UnauthorizedComponent />
+      ) : (
+        <Error message={messages[language].unauthorizedErrorMessage} />
+      );
+    }
+
+    if (userData && (needTariffData ? tariffData : true)) {
+      return (
+        <AuthorizedComponent
+          userData={userData}
+          userMutate={userMutate}
+          tariffData={tariffData}
+        />
+      );
+    }
+
+    return null;
+  },
+);
