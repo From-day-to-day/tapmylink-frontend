@@ -1,7 +1,6 @@
 .footer {
-    display: flex;
-    column-gap: 3rem;
-    row-gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 3rem;
+	justify-content: space-between;
 }

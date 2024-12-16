@@ -1,16 +1,16 @@
 .benefits {
-  display: grid;
-  gap: 3rem;
+	display: grid;
+	gap: 3rem;
 }
 
-@media (min-width: 750px) and (max-width: 1100px) {
-  .benefits {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (width >= 750px) and (width <= 1100px) {
+	.benefits {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
-@media (min-width: 1100px) {
-  .benefits {
-    grid-template-columns: repeat(3, 1fr);
-  }
+@media (width >= 1100px) {
+	.benefits {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }

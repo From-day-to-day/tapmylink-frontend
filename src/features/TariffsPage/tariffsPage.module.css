@@ -1,0 +1,11 @@
+.tariffs {
+	align-items: baseline;
+	display: grid;
+	gap: 3rem;
+}
+
+@media (width >= 750px) {
+	.tariffs {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

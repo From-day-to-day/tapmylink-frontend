@@ -1,7 +1,7 @@
 interface Props {
-  message: string;
+	message: string;
 }
 
 export const Error = ({ message }: Props) => {
-  return <div>🛑 {message}</div>;
+	return <div>🛑 {message}</div>;
 };

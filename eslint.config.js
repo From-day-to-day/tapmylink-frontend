@@ -18,14 +18,39 @@ export default [
         'error',
         {
           groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
+            ['builtin', 'external'],
+            ['internal'],
+            ['sibling', 'parent'],
+            ['index'],
+            ['unknown'],
           ],
-          alphabetize: { order: 'asc', caseInsensitive: true },
+          pathGroups: [
+            {
+              pattern: '{.,..}/**/*.css',
+              group: 'unknown',
+              position: 'after',
+            },
+          ],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
+      'import/extensions': [
+        'error',
+        'always',
+        {
+          ts: 'never',
+          tsx: 'never',
+        },
+      ],
+      'no-duplicate-imports': ['error', { includeExports: true }],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['@/features/*', '@/shared/*/*'],
         },
       ],
       'max-len': [
@@ -43,6 +68,11 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.app.json',
+        },
+      },
       react: {
         version: 'detect',
       },

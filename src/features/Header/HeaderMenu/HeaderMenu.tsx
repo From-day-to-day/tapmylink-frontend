@@ -1,14 +1,19 @@
-import { AuthorizedHeaderMenu } from './AuthorizedHeaderMenu';
-import styles from './headerMenu.module.css';
-import { UnauthorizedHeaderMenu } from './UnauthorizedHeaderMenu';
 import { AuthWrapper } from '@/shared/processes';
 
+import { AuthorizedHeaderMenu } from './AuthorizedHeaderMenu';
+import { UnauthorizedHeaderMenu } from './UnauthorizedHeaderMenu';
+
+import styles from './headerMenu.module.css';
+
 export const HeaderMenu = () => {
-  return (
-    <>
-      <menu className={styles.menu}>
-        <AuthWrapper AuthorizedComponent={AuthorizedHeaderMenu} UnauthorizedComponent={UnauthorizedHeaderMenu} />
-      </menu>
-    </>
-  );
+	return (
+		<>
+			<menu className={styles.menu}>
+				<AuthWrapper
+					AuthorizedComponent={AuthorizedHeaderMenu}
+					UnauthorizedComponent={UnauthorizedHeaderMenu}
+				/>
+			</menu>
+		</>
+	);
 };

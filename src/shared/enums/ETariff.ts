@@ -1,4 +1,4 @@
 export enum ETariff {
-  Basic = 1,
-  Premium = 2,
+	Basic = 1,
+	Premium = 2,
 }

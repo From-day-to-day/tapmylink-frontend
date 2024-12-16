@@ -1,9 +1,9 @@
 export class ErrorResponse extends Error {
-  httpStatus: number;
+	httpStatus: number;
 
-  constructor(message: string, httpStatus: number) {
-    super(message);
+	constructor(message: string, httpStatus: number) {
+		super(message);
 
-    this.httpStatus = httpStatus;
-  }
+		this.httpStatus = httpStatus;
+	}
 }

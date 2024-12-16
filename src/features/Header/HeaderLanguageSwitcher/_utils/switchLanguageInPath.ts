@@ -1,9 +1,9 @@
 import { ELanguage } from '@/shared/enums';
 
 export const switchLanguageInPath = (path: string, newLanguage: ELanguage) => {
-  const pathArray = path.split('/');
+	const pathArray = path.split('/');
 
-  pathArray[1] = newLanguage;
+	pathArray[1] = newLanguage;
 
-  return pathArray.join('/');
+	return pathArray.join('/');
 };

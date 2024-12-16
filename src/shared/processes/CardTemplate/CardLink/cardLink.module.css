@@ -1,24 +1,24 @@
 .container {
-  border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.25rem 0.75rem;
-  display: inline-flex;
-  justify-content: center;
-  transition: background-color 0.25s;
+	background-color: rgb(255 255 255 / 10%);
+	border-radius: 1rem;
+	display: inline-flex;
+	justify-content: center;
+	padding: 0.25rem 0.75rem;
+	transition: background-color 0.25s;
 }
 
 .container:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgb(255 255 255 / 20%);
 }
 
 .link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--light-color);
-  text-decoration: none;
+	align-items: center;
+	color: var(--light-color);
+	display: flex;
+	gap: 0.5rem;
+	text-decoration: none;
 }
 
 .link svg {
-  flex-shrink: 0;
+	flex-shrink: 0;
 }

@@ -1,10 +1,11 @@
 import { useContext } from 'preact/hooks';
+
 import { LanguageContext } from '@/shared/contexts';
 
 export const useLanguage = () => {
-  const languageContext = useContext(LanguageContext);
+	const languageContext = useContext(LanguageContext);
 
-  if (!languageContext) throw new Error('useLanguage must be defined');
+	if (!languageContext) throw new Error('useLanguage must be defined');
 
-  return languageContext;
+	return languageContext;
 };
