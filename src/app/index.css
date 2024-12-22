@@ -23,8 +23,3 @@
 	line-height: 1.5;
 	min-width: var(--max-body-width);
 }
-
-a {
-	color: var(--primary-color);
-	text-underline-offset: 0.2em;
-}

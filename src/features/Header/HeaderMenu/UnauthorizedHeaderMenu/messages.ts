@@ -5,7 +5,7 @@ export default {
 		loginMenuItem: 'Вход через Google',
 	},
 	[ELanguage.en]: {
-		loginMenuItem: 'Login with Google',
+		loginMenuItem: 'Log in with Google',
 	},
 	[ELanguage.es]: {
 		loginMenuItem: 'Iniciar sesión con Google',

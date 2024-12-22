@@ -1,5 +1,5 @@
 import { AppBenefits } from './AppBenefits';
-import { CreateLinkBlock } from './CreateLinkBlock';
+import { ManageCardsLinkBlock } from './ManageCardsLinkBlock';
 import { PreviewCards } from './PreviewCards';
 
 import styles from './homePage.module.css';
@@ -14,7 +14,7 @@ export const HomePage = () => {
 				<AppBenefits />
 			</div>
 			<div>
-				<CreateLinkBlock />
+				<ManageCardsLinkBlock />
 			</div>
 		</div>
 	);

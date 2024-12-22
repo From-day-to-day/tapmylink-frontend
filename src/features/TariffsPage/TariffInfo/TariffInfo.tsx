@@ -1,6 +1,6 @@
 import cc from 'classcat';
 
-import { FeedbackLink } from '@/shared/components';
+import { ExternalLink, FeedbackLink } from '@/shared/components';
 import { ETariff } from '@/shared/enums';
 import { useLanguage } from '@/shared/hooks';
 import { Tariff } from '@/shared/models';
@@ -47,12 +47,13 @@ export const TariffInfo = ({
 				{tariff.id > currentUserTariffId && (
 					<>
 						<span>
-							<a
+							<ExternalLink
 								href="javascript:void(0)"
 								onClick={() => onSwitchTariff(tariff.id)}
-							>
-								{messages[language].switchTariffButton(String(tariff.price))}
-							</a>
+								text={messages[language].switchTariffButton(
+									String(tariff.price),
+								)}
+							/>
 						</span>
 						<span>
 							<FeedbackLink

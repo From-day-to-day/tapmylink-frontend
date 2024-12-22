@@ -1,10 +1,10 @@
-import { Link } from 'wouter-preact';
-
+import { ExternalLink, InternalLink } from '@/shared/components';
 import { useLanguage } from '@/shared/hooks';
 import { AuthorizedComponentProps } from '@/shared/processes';
 import { routes } from '@/shared/routes';
 import { fetcher } from '@/shared/utils';
 
+import { getActiveMenuLinkClassName } from './_utils';
 import messages from './messages';
 
 import styles from './autorizedHeaderMenu.module.css';
@@ -23,35 +23,29 @@ export const AuthorizedHeaderMenu = ({
 		).then(userMutate);
 	};
 
-	const getActiveMenuLinkClassName = (isActive: boolean) =>
-		isActive ? styles.activeLink : '';
-
 	return (
 		<>
 			<li>
-				<Link
+				<InternalLink
 					className={getActiveMenuLinkClassName}
-					to={routes.cards(language)}
-				>
-					{messages[language].myCardsMenuItem}
-				</Link>
+					href={routes.cards(language)}
+					text={messages[language].myCardsMenuItem}
+				/>
 			</li>
 			<li>
-				<Link
+				<InternalLink
 					className={getActiveMenuLinkClassName}
-					to={routes.tariffs(language)}
-				>
-					{messages[language].plansMenuItem}
-				</Link>
+					href={routes.tariffs(language)}
+					text={messages[language].plansMenuItem}
+				/>
 			</li>
 			<li>
-				<a
+				<ExternalLink
 					href="javascript:void(0)"
 					onClick={onLogout}
 					className={styles.logoutLink}
-				>
-					{messages[language].logoutMenuItem}
-				</a>
+					text={messages[language].logoutMenuItem}
+				/>
 			</li>
 		</>
 	);

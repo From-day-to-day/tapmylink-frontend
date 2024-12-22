@@ -1,0 +1,8 @@
+.customLink {
+	color: var(--primary-color);
+	text-underline-offset: 0.2em;
+}
+
+.customLink__inner {
+	text-decoration: inherit;
+}

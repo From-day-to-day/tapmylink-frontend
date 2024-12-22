@@ -11,8 +11,9 @@ import {
 	FaPatreon,
 	FaXTwitter,
 	FaVk,
+	FaApple,
 } from 'react-icons/fa6';
-import { SiApplemusic, SiBoosty } from 'react-icons/si';
+import { SiBoosty } from 'react-icons/si';
 
 export const iconMap: { [key: string]: JSX.Element } = {
 	'youtube.com': <FaYoutube />,
@@ -24,8 +25,10 @@ export const iconMap: { [key: string]: JSX.Element } = {
 	'reddit.com': <FaRedditAlien />,
 	'discord.com': <FaDiscord />,
 	'patreon.com': <FaPatreon />,
-	'x.com': <FaXTwitter />,
 	'vk.com': <FaVk />,
-	'apple.com': <SiApplemusic />,
+	'apple.com': <FaApple />,
 	'boosty.to': <SiBoosty />,
+
+	'x.com': <FaXTwitter />,
+	'twitter.com': <FaXTwitter />,
 };

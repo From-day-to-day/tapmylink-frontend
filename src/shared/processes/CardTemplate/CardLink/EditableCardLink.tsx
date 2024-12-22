@@ -11,7 +11,7 @@ export const EditableCardLink = ({ title, url }: Props) => {
 	return (
 		<div>
 			<CardLink title={title} url={url}>
-				<Button variant="outlined">Редактировать</Button>
+				<Button buttonSize="small">Редактировать</Button>
 			</CardLink>
 		</div>
 	);

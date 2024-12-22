@@ -1,2 +1,2 @@
 #!/bin/sh
-npm run pre-build
+npm run pre-build && git add ./src

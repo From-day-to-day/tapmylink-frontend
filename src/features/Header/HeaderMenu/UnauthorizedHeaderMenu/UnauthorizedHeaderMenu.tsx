@@ -1,5 +1,7 @@
 import { useLocation } from 'wouter-preact';
 
+import { ExternalLink } from '@/shared/components';
+import { LoginIcon } from '@/shared/consts';
 import { useLanguage } from '@/shared/hooks';
 import { routes } from '@/shared/routes';
 
@@ -11,7 +13,11 @@ export const UnauthorizedHeaderMenu = () => {
 
 	return (
 		<li>
-			<a href={routes.auth(location)}>{messages[language].loginMenuItem}</a>
+			<ExternalLink
+				href={routes.auth(location)}
+				text={messages[language].loginMenuItem}
+				PostIcon={LoginIcon}
+			/>
 		</li>
 	);
 };
