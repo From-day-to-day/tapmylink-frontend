@@ -5,8 +5,8 @@ export default {
 		[ETariff.Basic]: {
 			title: 'Базовый',
 			description: 'Бесплатный тариф для всех пользователей.',
-			privileges: (dictionaryItemLimit: string) => [
-				`Вы можете хранить в словаре до ${dictionaryItemLimit} слов.`,
+			privileges: (cardsLimit: number, linksLimit: number) => [
+				`Вы можете создать ${cardsLimit} визитку и добавить до ${linksLimit} ссылок.`,
 			],
 		},
 		[ETariff.Premium]: {
@@ -14,14 +14,16 @@ export default {
 			description:
 				'Никаких подписок. При переходе на этот тариф, вы осуществляете поддержку нашему сервису, ' +
 				'а также получаете навсегда следующие преимущества:',
-			privileges: (dictionaryItemLimit: string) => [
-				`Вы можете хранить в словаре до ${dictionaryItemLimit} слов;`,
-				'Индивидуальная помощь по любым вопросам;',
-				'Новый режим обучения (в разработке).',
+			privileges: (cardsLimit: number, linksLimit: number) => [
+				`Создавайте до ${cardsLimit} визиток для разных целей — работы, хобби или личных контактов.`,
+				`Добавляйте до ${linksLimit} ссылок на каждую визитку — для соцсетей или сайтов. 
+				Каждой ссылке можно добавить своё короткое описание.`,
+				`Добавляйте текстовое описание, чтобы сделать визитки более информативными.`,
+				`Используйте готовые фоны, чтобы выделить свои визитки стильным дизайном.`,
 			],
 		},
 		currentTariffLabel: 'Ваш текущий тариф',
-		switchTariffButton: (tariffPrice: string) =>
+		switchTariffButton: (tariffPrice: number) =>
 			`Перейти на тариф за $${tariffPrice}`,
 		switchTariffHelpLink: 'Возникли вопросы по оплате? Напишите нам',
 	},
@@ -29,8 +31,8 @@ export default {
 		[ETariff.Basic]: {
 			title: 'Basic',
 			description: 'Free plan for all users.',
-			privileges: (dictionaryItemLimit: string) => [
-				`You can store up to ${dictionaryItemLimit} words in the dictionary.`,
+			privileges: (cardsLimit: number, linksLimit: number) => [
+				`You can create ${cardsLimit} business card and add up to ${linksLimit} links.`,
 			],
 		},
 		[ETariff.Premium]: {
@@ -38,14 +40,16 @@ export default {
 			description:
 				'No subscriptions. By switching to this plan, you support our service ' +
 				'and get the following benefits forever:',
-			privileges: (dictionaryItemLimit: string) => [
-				`You can store up to ${dictionaryItemLimit} words in the dictionary;`,
-				'Individual assistance with any questions;',
-				'New learning mode (in development).',
+			privileges: (cardsLimit: number, linksLimit: number) => [
+				`Create up to ${cardsLimit} business cards for different purposes — work, hobbies, or personal 
+				contacts. Add up to ${linksLimit} links to each card — for social networks or websites. 
+			You can add a short description to each link.`,
+				`Add a text description to make your cards more informative.`,
+				`Use preset backgrounds to make your cards stand out with stylish designs.`,
 			],
 		},
 		currentTariffLabel: 'Your current plan',
-		switchTariffButton: (tariffPrice: string) =>
+		switchTariffButton: (tariffPrice: number) =>
 			`Switch to the plan for $${tariffPrice}`,
 		switchTariffHelpLink: 'Have questions about payment? Contact us',
 	},
@@ -53,8 +57,8 @@ export default {
 		[ETariff.Basic]: {
 			title: 'Básico',
 			description: 'Plan gratuito para todos los usuarios.',
-			privileges: (dictionaryItemLimit: string) => [
-				`Puedes almacenar hasta ${dictionaryItemLimit} palabras en el diccionario.`,
+			privileges: (cardsLimit: number, linksLimit: number) => [
+				`Puedes crear ${cardsLimit} tarjeta de presentación y añadir hasta ${linksLimit} enlaces.`,
 			],
 		},
 		[ETariff.Premium]: {
@@ -62,14 +66,17 @@ export default {
 			description:
 				'Sin suscripciones. Al cambiar a este plan, apoyas nuestro servicio y obtienes ' +
 				'los siguientes beneficios para siempre:',
-			privileges: (dictionaryItemLimit: string) => [
-				`Puedes almacenar hasta ${dictionaryItemLimit} palabras en el diccionario;`,
-				'Asistencia individual con cualquier pregunta;',
-				'Nuevo modo de aprendizaje (en desarrollo).',
+			privileges: (cardsLimit: number, linksLimit: number) => [
+				`Crea hasta ${cardsLimit} tarjetas de presentación para diferentes propósitos: trabajo, 
+				hobbies o contactos personales. Añade hasta 
+				${linksLimit} enlaces a cada tarjeta: redes sociales o sitios web. 
+			Puedes añadir una breve descripción a cada enlace.`,
+				`Añade una descripción de texto para que tus tarjetas sean más informativas.`,
+				`Utiliza fondos preestablecidos para que tus tarjetas destaquen con un diseño elegante.`,
 			],
 		},
 		currentTariffLabel: 'Tu plan actual',
-		switchTariffButton: (tariffPrice: string) =>
+		switchTariffButton: (tariffPrice: number) =>
 			`Cambiar al plan por $${tariffPrice}`,
 		switchTariffHelpLink: '¿Tienes preguntas sobre el pago? Contáctanos',
 	},

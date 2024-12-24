@@ -6,5 +6,5 @@ export interface Tariff {
 	linksLimit: number;
 	hasCardDescription: boolean;
 	hasCardPalette: boolean;
-	price: boolean;
+	price: number;
 }

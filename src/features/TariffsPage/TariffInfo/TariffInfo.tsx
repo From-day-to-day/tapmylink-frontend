@@ -1,6 +1,7 @@
 import cc from 'classcat';
+import { FaArrowRight } from 'react-icons/fa6';
 
-import { ExternalLink, FeedbackLink } from '@/shared/components';
+import { ExternalLink } from '@/shared/components';
 import { ETariff } from '@/shared/enums';
 import { useLanguage } from '@/shared/hooks';
 import { Tariff } from '@/shared/models';
@@ -33,7 +34,7 @@ export const TariffInfo = ({
 			<div>{messages[language][tariff.id].description}</div>
 			<ul className={styles.tariff__privileges}>
 				{messages[language][tariff.id]
-					.privileges(String(tariff.linksLimit))
+					.privileges(tariff.cardsLimit, tariff.linksLimit)
 					.map((privilege, index) => (
 						<li key={index}>{privilege}</li>
 					))}
@@ -45,22 +46,15 @@ export const TariffInfo = ({
 					</div>
 				)}
 				{tariff.id > currentUserTariffId && (
-					<>
-						<span>
-							<ExternalLink
-								href="javascript:void(0)"
-								onClick={() => onSwitchTariff(tariff.id)}
-								text={messages[language].switchTariffButton(
-									String(tariff.price),
-								)}
-							/>
-						</span>
-						<span>
-							<FeedbackLink
-								linkText={messages[language].switchTariffHelpLink}
-							/>
-						</span>
-					</>
+					<span>
+						<ExternalLink
+							href="javascript:void(0)"
+							onClick={() => onSwitchTariff(tariff.id)}
+							text={messages[language].switchTariffButton(tariff.price)}
+							PostIcon={FaArrowRight}
+							className={styles.tariff__actionLink}
+						/>
+					</span>
 				)}
 			</div>
 		</div>

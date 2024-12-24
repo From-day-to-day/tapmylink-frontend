@@ -15,6 +15,8 @@
 }
 
 .tariff__privileges {
+	display: grid;
+	gap: 0.5rem;
 	list-style-type: disc;
 	padding-left: 1rem;
 }
@@ -28,4 +30,8 @@
 .tariff__currentTariffLabel {
 	font-weight: 700;
 	text-transform: uppercase;
+}
+
+.tariff__actionLink {
+	color: inherit;
 }

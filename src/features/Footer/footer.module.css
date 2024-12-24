@@ -4,3 +4,7 @@
 	gap: 0.5rem 3rem;
 	justify-content: space-between;
 }
+
+.feedbackLink {
+	text-decoration-style: dashed;
+}

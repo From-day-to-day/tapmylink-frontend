@@ -1,4 +1,4 @@
-import { FeedbackLink } from '@/shared/components';
+import { ExternalLink } from '@/shared/components';
 import { useLanguage } from '@/shared/hooks';
 
 import messages from './messages';
@@ -13,7 +13,13 @@ export const Footer = () => {
 			<span>
 				© {new Date().getFullYear()} TapMyLink. {messages[language].copyright}.
 			</span>
-			<FeedbackLink linkText={messages[language].feedbackLink} />
+			<ExternalLink
+				className={styles.feedbackLink}
+				href={`mailto:${import.meta.env.VITE_FEEDBACK_EMAIL}`}
+				rel="noopener noreferrer"
+				target="_blank"
+				text={messages[language].feedbackLink}
+			/>
 		</div>
 	);
 };
