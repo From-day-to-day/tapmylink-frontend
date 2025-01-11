@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "classcat": "^5.0.5",
-    "preact": "^10.25.3",
+    "preact": "^10.25.4",
     "react-icons": "^5.4.0",
     "swr": "^2.3.0",
     "wouter-preact": "^3.3.5"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.9.3",
-    "@types/node": "^22.10.2",
+    "@preact/preset-vite": "^2.9.4",
+    "@types/node": "^22.10.5",
     "eslint": "^9.17.0",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.31.0",
@@ -29,9 +29,9 @@
     "stylelint": "^16.12.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
-    "typescript": "^5.7.2",
-    "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.19.1",
+    "vite": "^6.0.7"
   },
   "browserslist": [
     "defaults and fully supports es6-module",

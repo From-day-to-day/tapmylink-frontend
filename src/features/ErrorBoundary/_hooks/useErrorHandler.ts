@@ -22,7 +22,7 @@ export const useErrorHandler = (
 		};
 
 		const sendLog = (errorMessage: string) => {
-			fetcher<Log>('log', 'POST', new Log(errorMessage)).catch(() => {
+			fetcher<Log, Log>('log', 'POST', new Log(errorMessage)).catch(() => {
 				// Предостережение циклической зависимости
 			});
 		};

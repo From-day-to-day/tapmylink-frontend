@@ -1,11 +1,11 @@
 import cc from 'classcat';
-import { ForwardedRef, forwardRef, HTMLAttributes } from 'preact/compat';
+import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'preact/compat';
 
 import styles from './textField.module.css';
 
 export const TextField = forwardRef(
 	(
-		props: HTMLAttributes<HTMLInputElement>,
+		props: InputHTMLAttributes<HTMLInputElement>,
 		ref: ForwardedRef<HTMLInputElement>,
 	) => {
 		return (

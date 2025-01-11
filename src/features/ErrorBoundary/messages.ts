@@ -9,7 +9,8 @@ const messages = {
 		unknownError: () =>
 			`Произошла неизвестная ошибка. ${messages[ELanguage.ru]._errorPostfix()}`,
 
-		// 'error.dictionary.create.duplicate': () => 'У вас уже есть такое слово в словаре.',
+		'error.card.create.duplicate': () =>
+			'Такое имя для визитки уже занято другими пользователями или вами.',
 	},
 	[ELanguage.en]: {
 		errorDialogTitle: () => 'An error occurred!',
@@ -19,7 +20,8 @@ const messages = {
 		unknownError: () =>
 			`An unknown error has occurred. ${messages[ELanguage.en]._errorPostfix()}`,
 
-		// 'error.dictionary.create.duplicate': () => 'У вас уже есть такое слово в словаре.',
+		'error.card.create.duplicate': () =>
+			'This name for the business card is already taken by other users or by you.',
 	},
 	[ELanguage.es]: {
 		errorDialogTitle: () => '¡Ocurrió un error!',
@@ -29,7 +31,8 @@ const messages = {
 		unknownError: () =>
 			`Ha ocurrido un error desconocido. ${messages[ELanguage.es]._errorPostfix()}`,
 
-		// 'error.dictionary.create.duplicate': () => 'У вас уже есть такое слово в словаре.',
+		'error.card.create.duplicate': () =>
+			'Este nombre para la tarjeta de presentación ya está ocupado por otros usuarios o por usted.',
 	},
 };
 

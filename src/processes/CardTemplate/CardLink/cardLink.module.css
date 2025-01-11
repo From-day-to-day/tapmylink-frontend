@@ -1,0 +1,25 @@
+.container {
+	border-radius: 1rem;
+	display: inline-flex;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.link {
+	align-items: center;
+	background-color: var(--overlay-light-high);
+	color: var(--light-color);
+	display: flex;
+	gap: 0.5rem;
+	padding: 0.25rem 0.75rem;
+	text-decoration: none;
+	transition: filter 0.25s;
+}
+
+.link:hover {
+	filter: brightness(2);
+}
+
+.link svg {
+	flex-shrink: 0;
+}

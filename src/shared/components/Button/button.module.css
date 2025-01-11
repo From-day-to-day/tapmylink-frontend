@@ -1,7 +1,10 @@
 .button {
 	border: 1px solid transparent;
-	font-weight: 700;
-	padding: 1em 2em;
+	display: inline-flex;
+	font-weight: 600;
+	justify-content: center;
+	letter-spacing: 1px;
+	padding: 0.5em 1.25em;
 	text-transform: uppercase;
 	transition: filter 0.25s;
 }
@@ -22,12 +25,12 @@
 
 .button:disabled {
 	cursor: not-allowed;
-	filter: brightness(0.5);
+	filter: opacity(0.5);
 }
 
 .button_contained {
 	background-color: var(--primary-color);
-	box-shadow: 0.35em 0.35em 0 0 var(--secondary-color);
+	box-shadow: 0 0.25em 0 0 var(--secondary-color);
 	color: var(--dark-color);
 }
 
@@ -38,18 +41,22 @@
 }
 
 .button_text {
-	background-color: rgb(255 255 255 / 5%);
-	color: var(--primary-color);
+	background-color: var(--overlay-light-high);
+	color: var(--light-color);
 }
 
 .button_small {
-	font-size: 0.5rem;
-}
-
-.button_medium {
 	font-size: 0.75rem;
 }
 
-.button_large {
+.button_medium {
 	font-size: 1rem;
+}
+
+.button_large {
+	font-size: 1.25rem;
+}
+
+.button_minSpaces {
+	padding: 0.25rem;
 }

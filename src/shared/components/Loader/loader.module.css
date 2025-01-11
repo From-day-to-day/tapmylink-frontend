@@ -1,5 +1,5 @@
 .loader {
-	background-color: rgb(255 255 255 / 5%);
+	background-color: var(--overlay-light-low);
 	display: inline-flex;
 	height: 1.5rem;
 	overflow: hidden;
@@ -12,7 +12,7 @@
 	background: linear-gradient(
 		to right,
 		transparent,
-		var(--overlay-light),
+		var(--overlay-light-high),
 		transparent
 	);
 	content: '';

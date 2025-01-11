@@ -1,10 +1,12 @@
 .textField {
 	background-color: transparent;
 	border-bottom: 1px solid var(--light-color);
+	box-sizing: border-box;
 	color: var(--light-color);
 	font-size: inherit;
 	outline: none;
 	padding: 0.5rem;
+	width: 100%;
 }
 
 .textField:focus {

@@ -1,9 +1,13 @@
 :root {
-	--dark-color: #181818;
+	/* theme */
+	--dark-color: #141414;
 	--light-color: #cbd3d7;
 	--primary-color: #5070dc;
 	--secondary-color: #2f3a80;
-	--overlay-light: rgb(255 255 255 / 7.5%);
+	--overlay-light-high: rgb(255 255 255 / 10%);
+	--overlay-light-low: rgb(255 255 255 / 5%);
+
+	/* sizes */
 	--max-body-width: 360px;
 	--app-padding: clamp(1rem, 4vw, 1.5rem);
 	--app-gap: 6rem;

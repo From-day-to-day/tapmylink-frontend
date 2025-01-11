@@ -1,0 +1,10 @@
+.modalFormHint {
+	font-size: 0.75rem;
+	margin-top: 0.25rem;
+}
+
+.openModalButtonContainer {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+}

@@ -1,0 +1,36 @@
+.card {
+	align-content: space-between;
+	display: grid;
+	gap: 1.25rem;
+	padding: 1rem;
+}
+
+.card_withoutTheme {
+	background-color: var(--overlay-light-low);
+}
+
+.controls {
+	align-items: center;
+	display: flex;
+	gap: 1.5rem;
+}
+
+.cardHeader {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+	justify-content: space-between;
+	min-width: 0;
+}
+
+.cardHeader__title {
+	font-size: 1.5rem;
+	font-weight: 900;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.link {
+	color: inherit;
+}

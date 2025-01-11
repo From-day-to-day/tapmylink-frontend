@@ -1,6 +1,6 @@
+import { AuthorizedComponentProps } from '@/processes/AuthWrapper';
 import { ExternalLink, InternalLink } from '@/shared/components';
 import { useLanguage } from '@/shared/hooks';
-import { AuthorizedComponentProps } from '@/shared/processes';
 import { routes } from '@/shared/routes';
 import { fetcher } from '@/shared/utils';
 
@@ -20,7 +20,7 @@ export const AuthorizedHeaderMenu = ({
 			'GET',
 			undefined,
 			`${import.meta.env.VITE_BACKEND_URL}/`,
-		).then(userMutate);
+		).then(() => userMutate());
 	};
 
 	return (

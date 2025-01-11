@@ -1,11 +1,11 @@
-import { ECardBackground } from '../enums';
+import { ECardTheme } from '../enums';
 
 export interface Card {
 	id: number;
-	title: string;
+	name: string;
 	description?: string;
 	links?: CardLink[];
-	background: ECardBackground;
+	theme: ECardTheme | null;
 }
 
 export interface CardLink {

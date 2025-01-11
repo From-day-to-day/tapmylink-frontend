@@ -1,0 +1,10 @@
+.tariffs {
+	display: grid;
+	gap: 2rem;
+}
+
+@media (width >= 750px) {
+	.tariffs {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

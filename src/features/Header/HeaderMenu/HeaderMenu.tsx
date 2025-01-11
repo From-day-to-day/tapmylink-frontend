@@ -1,4 +1,4 @@
-import { AuthWrapper } from '@/shared/processes';
+import { AuthWrapper } from '@/processes';
 
 import { AuthorizedHeaderMenu } from './AuthorizedHeaderMenu';
 import { UnauthorizedHeaderMenu } from './UnauthorizedHeaderMenu';

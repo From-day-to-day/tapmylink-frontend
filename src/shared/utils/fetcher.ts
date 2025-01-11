@@ -4,10 +4,10 @@ import { ErrorResponse } from '@/shared/models';
 
 import { ACCOUNT_API_PATH } from '../consts';
 
-export const fetcher = async <T>(
+export const fetcher = async <ResponseType, PayloadType = undefined>(
 	url: string,
 	method = 'GET',
-	payload?: T,
+	payload?: PayloadType,
 	prefix = import.meta.env.VITE_BACKEND_URL + '/api/',
 ) => {
 	const response = await fetch(prefix + url, {
@@ -20,7 +20,7 @@ export const fetcher = async <T>(
 	});
 
 	if (response.ok) {
-		return (await response.json()) as T;
+		return (await response.json()) as ResponseType;
 	}
 
 	if (url !== ACCOUNT_API_PATH && response.status === 401) {

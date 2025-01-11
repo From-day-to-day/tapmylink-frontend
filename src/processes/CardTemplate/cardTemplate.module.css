@@ -1,0 +1,28 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	overflow-wrap: anywhere;
+	padding: var(--app-padding);
+}
+
+.card__name {
+	font-size: 2rem;
+	font-weight: 900;
+}
+
+.card__body {
+	display: grid;
+	gap: 2rem;
+}
+
+.card__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.card__footer {
+	margin-top: auto;
+	padding-top: 2rem;
+	text-align: center;
+}

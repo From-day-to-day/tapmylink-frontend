@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'preact/compat';
 import { useEffect, useState } from 'preact/hooks';
 
+import { Modal } from '@/processes';
 import { useLanguage } from '@/shared/hooks';
-import { Modal } from '@/shared/processes';
 
 import { useErrorHandler } from './_hooks';
 import messages from './messages';

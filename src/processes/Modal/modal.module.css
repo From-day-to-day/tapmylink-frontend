@@ -1,0 +1,44 @@
+.modal {
+	background-color: var(--dark-color);
+	border-width: 0;
+	box-sizing: border-box;
+	color: var(--light-color);
+	margin: 0;
+	max-height: 100%;
+	overflow: auto;
+	padding: 1.5rem;
+	position: fixed;
+	width: var(--max-body-width);
+	z-index: 2;
+}
+
+.modal_centerX {
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, 0);
+}
+
+.modal_centerXY {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.modal__closeButton {
+	--close-button-indent: 0.25rem;
+
+	position: absolute;
+	right: var(--close-button-indent);
+	top: var(--close-button-indent);
+}
+
+.backdrop {
+	background-color: rgb(0 0 0 / 80%);
+	inset: 0;
+	position: fixed;
+	z-index: 1;
+}
+
+.lockScroll {
+	overflow: hidden;
+}

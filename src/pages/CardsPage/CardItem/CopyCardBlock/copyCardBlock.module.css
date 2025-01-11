@@ -1,0 +1,12 @@
+.copyCardBlock {
+	align-items: center;
+	background-color: var(--overlay-light-low);
+	display: inline-flex;
+	gap: 1rem;
+	padding: 0.5rem;
+}
+
+.url {
+	font-family: monospace;
+	word-break: break-all;
+}

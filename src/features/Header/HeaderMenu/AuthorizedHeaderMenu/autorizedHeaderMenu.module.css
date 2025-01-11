@@ -1,18 +1,7 @@
 .activeLink {
-	color: var(--dark-color);
+	filter: brightness(1.5);
 	pointer-events: none;
-	position: relative;
 	text-decoration: none;
-	z-index: 0;
-}
-
-.activeLink::before {
-	background-color: var(--primary-color);
-	border-radius: 1rem;
-	content: '';
-	inset: -0.5rem -0.75rem;
-	position: absolute;
-	z-index: -1;
 }
 
 .logoutLink {

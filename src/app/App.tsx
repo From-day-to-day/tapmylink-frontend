@@ -2,15 +2,10 @@ import './reset.css';
 
 import { Redirect, Route, Switch } from 'wouter-preact';
 
-import {
-	Error404Page,
-	Footer,
-	Header,
-	HomePage,
-	TariffsPage,
-} from '@/features';
+import { Footer, Header } from '@/features';
+import { HomePage, CardsPage, TariffsPage, Error404Page } from '@/pages';
+import { AuthWrapper } from '@/processes';
 import { ELanguage } from '@/shared/enums';
-import { AuthWrapper } from '@/shared/processes';
 import { routes } from '@/shared/routes';
 
 import styles from './app.module.css';
@@ -18,7 +13,7 @@ import styles from './app.module.css';
 export const App = () => {
 	return (
 		<Switch>
-			<Route path={routes.publicCard}>
+			<Route path={routes.publicCard()}>
 				<div>public card</div>
 			</Route>
 			<Route>
@@ -32,13 +27,10 @@ export const App = () => {
 						</Route>
 						<Route path={routes.home()} component={HomePage} />
 						<Route path={routes.cards()}>
-							<div>cards</div>
+							<AuthWrapper AuthorizedComponent={CardsPage} needTariffData />
 						</Route>
 						<Route path={routes.editCard()}>
 							<div>edit card</div>
-						</Route>
-						<Route path={routes.createCard()}>
-							<div>create card</div>
 						</Route>
 						<Route path={routes.tariffs()}>
 							<AuthWrapper AuthorizedComponent={TariffsPage} />
