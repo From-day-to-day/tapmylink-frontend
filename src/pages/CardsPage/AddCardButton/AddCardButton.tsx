@@ -5,13 +5,13 @@ import { useLocation } from 'wouter-preact';
 
 import { HelpButton } from '@/containers';
 import { Modal } from '@/processes';
-import { Button, Form, TextField } from '@/shared/components';
+import { Button, Form, Input } from '@/shared/components';
+import { CARDS_API_PATH } from '@/shared/consts';
 import { useFieldFocus, useLanguage } from '@/shared/hooks';
 import { Card, ErrorResponse } from '@/shared/models';
 import { routes } from '@/shared/routes';
 import { trimAndMapFormData, fetcher } from '@/shared/utils';
 
-import { CARDS_API_PATH } from '../consts';
 import { CardFormData } from './_models';
 import messages from './messages';
 
@@ -71,7 +71,7 @@ export const AddCardButton = ({ isProcessDisabled, cardsLimit }: Props) => {
 		<>
 			<div className={styles.openModalButtonContainer}>
 				<Button
-					variant="contained"
+					variant="primary"
 					disabled={isProcessDisabled}
 					onClick={onAddCardClick}
 				>
@@ -83,26 +83,22 @@ export const AddCardButton = ({ isProcessDisabled, cardsLimit }: Props) => {
 			</div>
 			<Modal open={isModalOpen} onClose={onCloseModalClick} centerPosition="xy">
 				<Form onSubmit={onAddCardSubmitForm}>
-					<div>
-						<TextField
-							ref={addCardFieldRef}
-							placeholder={messages[language].cardNamePlaceholder}
-							disabled={isAddCardMutating}
-							name="name"
-							minlength={3}
-							maxlength={50}
-							pattern="^[a-zA-Z0-9]+$"
-							required
-						/>
-						<div className={styles.modalFormHint}>
-							{messages[language].cardNameRulesHint}
-						</div>
-						<div className={styles.modalFormHint}>
-							{messages[language].acceptableContentHint}
-						</div>
+					<div className={styles.modalFormHints}>
+						<div>{messages[language].cardNameRulesHint}</div>
+						<div>{messages[language].acceptableContentHint}</div>
 					</div>
+					<Input
+						ref={addCardFieldRef}
+						placeholder={messages[language].cardNamePlaceholder}
+						disabled={isAddCardMutating}
+						name="name"
+						minlength={3}
+						maxlength={50}
+						pattern="^[a-zA-Z0-9]+$"
+						required
+					/>
 					<Button
-						variant="contained"
+						variant="primary"
 						buttonSize="small"
 						disabled={isAddCardMutating}
 					>

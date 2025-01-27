@@ -4,7 +4,7 @@ import { MdClose } from 'react-icons/md';
 
 import { Button } from '@/shared/components';
 
-import { useLockScroll } from './_hooks';
+import { useCloseButtonSize, useLockScroll } from './_hooks';
 
 import styles from './modal.module.css';
 
@@ -27,6 +27,7 @@ export const Modal = ({
 	children,
 }: PropsWithChildren<Props>) => {
 	useLockScroll(!hideBackdrop && open);
+	const { closeButtonRef, closeButtonSize } = useCloseButtonSize([open]);
 
 	return (
 		<>
@@ -39,9 +40,13 @@ export const Modal = ({
 							styles[`modal_center${centerPosition.toUpperCase()}`],
 						className,
 					])}
+					style={{
+						padding: `${closeButtonSize.height}px ${closeButtonSize.width}px`,
+					}}
 				>
 					{!hideCloseButton && (
 						<Button
+							ref={closeButtonRef}
 							className={styles.modal__closeButton}
 							onClick={onClose}
 							minSpaces
@@ -49,7 +54,7 @@ export const Modal = ({
 							<MdClose />
 						</Button>
 					)}
-					{children}
+					{Boolean(closeButtonSize.width) && children}
 				</dialog>
 			)}
 			{!hideBackdrop && open && <div className={styles.backdrop} />}

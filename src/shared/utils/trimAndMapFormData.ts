@@ -8,6 +8,7 @@ export const trimAndMapFormData = <T extends Record<string, string>>(
 		trimmedFormData[key] = trimmedValue;
 
 		const input = formElement.elements.namedItem(key) as HTMLInputElement;
+
 		if (input) {
 			input.value = trimmedValue;
 		}

@@ -11,6 +11,8 @@ const messages = {
 
 		'error.card.create.duplicate': () =>
 			'Такое имя для визитки уже занято другими пользователями или вами.',
+		'error.card.getPublicCardByNickName.notFound': () =>
+			'Визитки по данному адресу не существует. Проверьте, пожалуйста, адрес.',
 	},
 	[ELanguage.en]: {
 		errorDialogTitle: () => 'An error occurred!',
@@ -22,6 +24,8 @@ const messages = {
 
 		'error.card.create.duplicate': () =>
 			'This name for the business card is already taken by other users or by you.',
+		'error.card.getPublicCardByNickName.notFound': () =>
+			'The business card at this address does not exist. Please check the address.',
 	},
 	[ELanguage.es]: {
 		errorDialogTitle: () => '¡Ocurrió un error!',
@@ -33,6 +37,8 @@ const messages = {
 
 		'error.card.create.duplicate': () =>
 			'Este nombre para la tarjeta de presentación ya está ocupado por otros usuarios o por usted.',
+		'error.card.getPublicCardByNickName.notFound': () =>
+			'La tarjeta de presentación en esta dirección no existe. Por favor, verifique la dirección.',
 	},
 };
 

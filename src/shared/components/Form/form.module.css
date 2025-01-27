@@ -1,4 +1,5 @@
 .form {
 	display: grid;
 	gap: 1.5rem;
+	justify-items: flex-start;
 }

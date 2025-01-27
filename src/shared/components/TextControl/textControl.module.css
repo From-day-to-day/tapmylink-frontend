@@ -1,0 +1,26 @@
+.textControl {
+	background-color: var(--overlay-light-high);
+	border: none;
+	border-bottom: 1px solid transparent;
+	box-sizing: border-box;
+	color: var(--light-color);
+	font-family: inherit;
+	font-size: inherit;
+	outline: none;
+	padding: 0.5rem;
+	resize: none;
+	width: 100%;
+}
+
+.textControl:focus {
+	border-color: var(--light-color);
+}
+
+.textControl:disabled {
+	opacity: 0.5;
+}
+
+.textControl::placeholder {
+	color: var(--light-color);
+	opacity: 0.6;
+}

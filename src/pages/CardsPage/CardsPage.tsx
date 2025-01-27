@@ -2,12 +2,12 @@ import { Fragment } from 'preact';
 import useSWR from 'swr';
 
 import { Loader } from '@/shared/components';
+import { CARDS_API_PATH } from '@/shared/consts';
 import { Card, ErrorResponse, Tariff } from '@/shared/models';
 import { rethrowErrorAsync } from '@/shared/utils';
 
 import { AddCardButton } from './AddCardButton';
 import { CardItem } from './CardItem';
-import { CARDS_API_PATH } from './consts';
 
 import styles from './cardPage.module.css';
 

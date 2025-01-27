@@ -4,7 +4,7 @@
 	font-weight: 600;
 	justify-content: center;
 	letter-spacing: 1px;
-	padding: 0.5em 1.25em;
+	padding: 0.5em 1.5em;
 	text-transform: uppercase;
 	transition: filter 0.25s;
 }
@@ -28,21 +28,17 @@
 	filter: opacity(0.5);
 }
 
-.button_contained {
+.button_primary {
 	background-color: var(--primary-color);
 	box-shadow: 0 0.25em 0 0 var(--secondary-color);
 	color: var(--dark-color);
 }
 
-.button_outlined {
-	background-color: transparent;
-	border: 0.25em solid currentcolor;
-	color: var(--primary-color);
-}
-
-.button_text {
-	background-color: var(--overlay-light-high);
+.button_light {
+	background-color: var(--overlay-light-extra-high);
+	border: 1px solid var(--overlay-light-high);
 	color: var(--light-color);
+	letter-spacing: 2px;
 }
 
 .button_small {

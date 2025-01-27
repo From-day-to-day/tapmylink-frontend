@@ -4,6 +4,7 @@
 	--light-color: #cbd3d7;
 	--primary-color: #5070dc;
 	--secondary-color: #2f3a80;
+	--overlay-light-extra-high: rgb(255 255 255 / 20%);
 	--overlay-light-high: rgb(255 255 255 / 10%);
 	--overlay-light-low: rgb(255 255 255 / 5%);
 
@@ -25,5 +26,6 @@
 		sans-serif;
 	font-weight: 400;
 	line-height: 1.5;
+	min-height: 100%;
 	min-width: var(--max-body-width);
 }

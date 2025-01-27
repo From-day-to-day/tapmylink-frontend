@@ -7,19 +7,23 @@ import styles from './cardColorWrapper.module.css';
 
 interface Props {
 	theme: ECardTheme | null;
+	isFullScreen?: boolean;
 }
 
 export const CardColorWrapper = ({
 	children,
 	theme,
+	isFullScreen,
 	...divProps
 }: PropsWithChildren<HTMLAttributes<HTMLDivElement> & Props>) => {
 	return (
 		<div
 			{...divProps}
 			className={cc([
+				styles.card,
 				divProps.className,
-				theme !== null && styles[ECardTheme[theme]],
+				theme !== null && styles[`card_${ECardTheme[theme]}`],
+				isFullScreen && styles.card_fullScreen,
 			])}
 		>
 			{children}

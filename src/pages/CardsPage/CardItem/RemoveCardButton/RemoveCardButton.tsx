@@ -2,12 +2,12 @@ import { FaRegTrashCan } from 'react-icons/fa6';
 import useSWRMutation from 'swr/mutation';
 
 import { Button } from '@/shared/components';
+import { CARDS_API_PATH } from '@/shared/consts';
 import { useLanguage } from '@/shared/hooks';
 import { Card, ErrorResponse } from '@/shared/models';
 import { fetcher } from '@/shared/utils';
 
 import messages from './messages';
-import { CARDS_API_PATH } from '../../consts';
 
 interface Props {
 	cardId: number;
