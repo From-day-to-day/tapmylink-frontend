@@ -1,5 +1,5 @@
 import { CardColorWrapper } from '@/shared/components';
-import { Card } from '@/shared/models';
+import { Card, Tariff } from '@/shared/models';
 
 import { CardLink, EditableCardLink } from './CardLink';
 import { EditableCardDescription } from './EditableCardDescription';
@@ -11,7 +11,7 @@ interface Props {
 	cacheDataKey?: string;
 	isEditable?: boolean;
 	hideFooter?: boolean;
-	hideDescription?: boolean;
+	tariffData?: Tariff;
 	isFullScreen?: boolean;
 }
 
@@ -19,7 +19,7 @@ export const CardTemplate = ({
 	card,
 	isEditable,
 	hideFooter,
-	hideDescription,
+	tariffData,
 	isFullScreen,
 	cacheDataKey,
 }: Props) => {
@@ -33,11 +33,12 @@ export const CardTemplate = ({
 				<div>
 					<h2 className={styles.card__name}>{card.name}</h2>
 				</div>
-				{isEditable && !hideDescription && cacheDataKey ? (
+				{isEditable && cacheDataKey ? (
 					<EditableCardDescription
 						id={card.id}
 						description={card.description}
 						cacheDataKey={cacheDataKey}
+						hasPremium={tariffData?.hasCardDescription}
 					/>
 				) : (
 					card.description && (

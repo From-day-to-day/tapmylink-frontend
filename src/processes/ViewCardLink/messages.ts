@@ -2,12 +2,12 @@ import { ELanguage } from '@/shared/enums';
 
 export default {
 	[ELanguage.ru]: {
-		editCardButtonText: 'Редактировать',
+		viewCardButtonText: 'Просмотр',
 	},
 	[ELanguage.en]: {
-		editCardButtonText: 'Edit',
+		viewCardButtonText: 'View',
 	},
 	[ELanguage.es]: {
-		editCardButtonText: 'Editar',
+		viewCardButtonText: 'Ver',
 	},
 };

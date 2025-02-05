@@ -1,0 +1,36 @@
+.themes {
+	--list-item-gap: 0.75rem;
+
+	align-items: center;
+	display: flex;
+	gap: var(--list-item-gap);
+}
+
+.themes__list {
+	display: grid;
+	flex: 1;
+	gap: var(--list-item-gap);
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+.theme {
+	align-items: center;
+	border: 1px solid var(--overlay-light-high);
+	display: flex;
+	font-size: 1.5rem;
+	height: 2rem;
+	justify-content: center;
+}
+
+.theme_disabled {
+	cursor: not-allowed;
+	opacity: var(--disabled-form-opacity);
+}
+
+.theme:not(.theme_active) {
+	cursor: pointer;
+}
+
+.theme:hover:not(:disabled, .theme_active) {
+	box-shadow: 0 0 0 6px var(--overlay-light-high);
+}

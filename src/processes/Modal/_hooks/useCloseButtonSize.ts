@@ -13,7 +13,7 @@ export const useCloseButtonSize = (deps?: Inputs) => {
 				height: closeButtonRef.current.offsetHeight,
 			});
 		}
-	}, [deps]);
+	}, deps);
 
 	return { closeButtonRef, closeButtonSize };
 };

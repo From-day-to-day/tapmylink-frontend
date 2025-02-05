@@ -3,19 +3,23 @@ import { useState } from 'preact/hooks';
 import { useRef } from 'react';
 import useSWRMutation from 'swr/mutation';
 
+import { HelpButton } from '@/containers';
 import { Textarea, Form, Button } from '@/shared/components';
 import { CARDS_API_PATH } from '@/shared/consts';
 import { useLanguage } from '@/shared/hooks';
 import { Card, ErrorResponse } from '@/shared/models';
-import { trimAndMapFormData, fetcher, rethrowErrorAsync } from '@/shared/utils';
+import { trimAndMapFormData, fetcher } from '@/shared/utils';
 
 import { MAX_DESCRIPTION_FIELD_LENGTH } from './_consts';
 import { CardFormData } from './_models';
 import messages from './messages';
 
+import styles from './editableCardDescription.module.css';
+
 interface Props {
 	id: number;
 	cacheDataKey: string;
+	hasPremium?: boolean;
 	description?: string;
 }
 
@@ -23,13 +27,13 @@ export const EditableCardDescription = ({
 	id,
 	description,
 	cacheDataKey,
+	hasPremium,
 }: Props) => {
 	const { language } = useLanguage();
 	const cardDescriptionRef = useRef<HTMLTextAreaElement>(null);
-	const [isDescriptionFieldDisabled, setIsDescriptionFieldDisabled] =
-		useState(true);
+	const [isFormDisabled, setIsFormDisabled] = useState(true);
 
-	const { error, isMutating, trigger } = useSWRMutation<
+	const { isMutating, trigger } = useSWRMutation<
 		Card,
 		ErrorResponse,
 		string,
@@ -39,8 +43,6 @@ export const EditableCardDescription = ({
 		async (_url, { arg }) =>
 			await fetcher(`${CARDS_API_PATH}/${id}/description`, 'PATCH', arg),
 	);
-
-	rethrowErrorAsync(error);
 
 	const onSubmitDescriptionForm = async (
 		e: JSX.TargetedEvent<HTMLFormElement>,
@@ -52,11 +54,11 @@ export const EditableCardDescription = ({
 		await trigger(trimAndMapFormData<CardFormData>(currentTarget), {
 			revalidate: false,
 		});
-		setIsDescriptionFieldDisabled(true);
+		setIsFormDisabled(true);
 	};
 
 	const onChangeDescription = () => {
-		setIsDescriptionFieldDisabled(false);
+		setIsFormDisabled(false);
 	};
 
 	return (
@@ -64,19 +66,22 @@ export const EditableCardDescription = ({
 			<Textarea
 				ref={cardDescriptionRef}
 				placeholder={messages[language].fieldDescriptionPlaceholder}
-				disabled={isMutating}
+				disabled={isMutating || !hasPremium}
 				name="description"
 				onChange={onChangeDescription}
 				maxLength={MAX_DESCRIPTION_FIELD_LENGTH}
 			>
 				{description}
 			</Textarea>
-			<Button
-				buttonSize="small"
-				disabled={isMutating || isDescriptionFieldDisabled}
-			>
-				{messages[language].saveButtonText}
-			</Button>
+			<div className={styles.buttonWrapper}>
+				<Button
+					buttonSize="small"
+					disabled={isMutating || isFormDisabled || !hasPremium}
+				>
+					{messages[language].saveButtonText}
+				</Button>
+				{!hasPremium && <HelpButton title={messages[language].noPremiumHint} />}
+			</div>
 		</Form>
 	);
 };

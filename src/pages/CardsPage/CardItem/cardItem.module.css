@@ -5,10 +5,6 @@
 	padding: 1rem;
 }
 
-.card_withoutTheme {
-	background-color: var(--overlay-light-low);
-}
-
 .controls {
 	align-items: center;
 	display: flex;

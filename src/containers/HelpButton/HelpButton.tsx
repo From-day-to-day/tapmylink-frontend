@@ -16,7 +16,12 @@ export const HelpButton = ({ title }: Props) => {
 
 	return (
 		<>
-			<Button buttonSize="small" minSpaces onClick={onOpenModalClick}>
+			<Button
+				buttonSize="small"
+				minSpaces
+				onClick={onOpenModalClick}
+				type="button"
+			>
 				<FaQuestion />
 			</Button>
 			<Modal open={isOpen} onClose={onCloseModalClick} centerPosition="xy">

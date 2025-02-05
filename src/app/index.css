@@ -4,14 +4,22 @@
 	--light-color: #cbd3d7;
 	--primary-color: #5070dc;
 	--secondary-color: #2f3a80;
-	--overlay-light-extra-high: rgb(255 255 255 / 20%);
 	--overlay-light-high: rgb(255 255 255 / 10%);
 	--overlay-light-low: rgb(255 255 255 / 5%);
+
+	/* card themes */
+	--card-black-theme: linear-gradient(145deg, #131313, #2a2a2a, #3e3e3e);
+	--card-red-theme: linear-gradient(145deg, #873232, #a24747, #b65d5d);
+	--card-orange-theme: linear-gradient(145deg, #9f5c22, #b66b37, #cc7e4a);
+	--card-green-theme: linear-gradient(145deg, #3a5e3b, #527f5a, #6f9c6f);
+	--card-blue-theme: linear-gradient(145deg, #3c4e60, #4a6784, #5b7b97);
+	--card-pink-theme: linear-gradient(145deg, #8f3a5b, #a74e72, #be6c88);
 
 	/* sizes */
 	--max-body-width: 360px;
 	--app-padding: clamp(1rem, 4vw, 1.5rem);
 	--app-gap: 6rem;
+	--disabled-form-opacity: 0.4;
 
 	color: var(--light-color);
 	color-scheme: dark;

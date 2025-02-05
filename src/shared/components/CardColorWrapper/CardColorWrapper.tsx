@@ -22,7 +22,9 @@ export const CardColorWrapper = ({
 			className={cc([
 				styles.card,
 				divProps.className,
-				theme !== null && styles[`card_${ECardTheme[theme]}`],
+				theme !== null
+					? styles[`card_${ECardTheme[theme]}`]
+					: styles.card_withoutTheme,
 				isFullScreen && styles.card_fullScreen,
 			])}
 		>

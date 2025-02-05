@@ -38,6 +38,7 @@ export const Modal = ({
 						styles.modal,
 						centerPosition &&
 							styles[`modal_center${centerPosition.toUpperCase()}`],
+						!closeButtonSize.width && styles.modal_processing,
 						className,
 					])}
 					style={{
@@ -54,7 +55,7 @@ export const Modal = ({
 							<MdClose />
 						</Button>
 					)}
-					{Boolean(closeButtonSize.width) && children}
+					{children}
 				</dialog>
 			)}
 			{!hideBackdrop && open && <div className={styles.backdrop} />}

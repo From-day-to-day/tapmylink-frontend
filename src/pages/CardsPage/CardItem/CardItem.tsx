@@ -1,11 +1,7 @@
-import cc from 'classcat';
-import { FaPencil, FaEye } from 'react-icons/fa6';
+import { FaPencil } from 'react-icons/fa6';
 
-import {
-	CardColorWrapper,
-	ExternalLink,
-	InternalLink,
-} from '@/shared/components';
+import { ViewCardLink } from '@/processes';
+import { CardColorWrapper, InternalLink } from '@/shared/components';
 import { useLanguage } from '@/shared/hooks';
 import { Card } from '@/shared/models';
 import { routes } from '@/shared/routes';
@@ -24,10 +20,7 @@ export const CardItem = ({ card: { id, name, theme } }: Props) => {
 	const { language } = useLanguage();
 
 	return (
-		<CardColorWrapper
-			className={cc([styles.card, !theme && styles.card_withoutTheme])}
-			theme={theme}
-		>
+		<CardColorWrapper className={styles.card} theme={theme}>
 			<div className={styles.cardHeader}>
 				<span className={styles.cardHeader__title}>{name}</span>
 				<RemoveCardButton cardId={id} cardName={name} />
@@ -36,13 +29,7 @@ export const CardItem = ({ card: { id, name, theme } }: Props) => {
 				<CopyCardBlock cardName={name} />
 			</div>
 			<div className={styles.controls}>
-				<ExternalLink
-					className={styles.link}
-					href={routes.publicCard(name)}
-					PreIcon={FaEye}
-					target="_blank"
-					text={messages[language].viewCardButtonText}
-				/>
+				<ViewCardLink linkClassName={styles.link} cardName={name} />
 				<InternalLink
 					className={styles.link}
 					href={routes.editCard(id, language)}

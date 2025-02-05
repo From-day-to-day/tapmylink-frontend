@@ -1,13 +1,16 @@
 import useSWR from 'swr';
 import { useParams } from 'wouter-preact';
 
-import { CardTemplate } from '@/processes';
-import { Loader } from '@/shared/components';
+import { CardTemplate, ViewCardLink } from '@/processes';
+import { Button, Loader } from '@/shared/components';
 import { CARDS_API_PATH } from '@/shared/consts';
+import { useCopyCard, useLanguage } from '@/shared/hooks';
 import { Card, ErrorResponse, Tariff } from '@/shared/models';
 import { rethrowErrorAsync } from '@/shared/utils';
 
 import { EditCardRouteParams } from './_models';
+import { EditCardTheme } from './EditCardTheme';
+import messages from './messages';
 
 import styles from './editCardPage.module.css';
 
@@ -17,6 +20,8 @@ interface Props {
 
 export const EditCardPage = ({ tariffData }: Props) => {
 	const { id } = useParams<EditCardRouteParams>();
+	const { language } = useLanguage();
+
 	const cacheDataKey = `${CARDS_API_PATH}/my/${id}`;
 
 	const {
@@ -25,20 +30,43 @@ export const EditCardPage = ({ tariffData }: Props) => {
 		isLoading,
 	} = useSWR<Card, ErrorResponse>(cacheDataKey);
 
+	const { isCopiedCard, onCopyCard } = useCopyCard(cardData?.name);
+
 	rethrowErrorAsync(error);
 
 	if (isLoading) return <Loader />;
 	if (!cardData) return null;
 
 	return (
-		<div className={styles.card}>
-			<CardTemplate
-				card={cardData}
-				isEditable
-				hideFooter
-				hideDescription={!tariffData?.hasCardDescription}
+		<div className={styles.container}>
+			<div className={styles.controls}>
+				<Button
+					variant="outlined"
+					onClick={onCopyCard}
+					disabled={isCopiedCard}
+					buttonSize="small"
+				>
+					{isCopiedCard
+						? messages[language].copiedText
+						: messages[language].copyCardButtonText}
+				</Button>
+				<ViewCardLink cardName={cardData.name} />
+			</div>
+			<EditCardTheme
+				id={cardData.id}
+				theme={cardData.theme}
+				tariffData={tariffData}
 				cacheDataKey={cacheDataKey}
 			/>
+			<div className={styles.card}>
+				<CardTemplate
+					card={cardData}
+					isEditable
+					hideFooter
+					tariffData={tariffData}
+					cacheDataKey={cacheDataKey}
+				/>
+			</div>
 		</div>
 	);
 };

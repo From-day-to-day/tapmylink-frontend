@@ -9,7 +9,7 @@ import {
 import styles from './button.module.css';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-	variant?: 'primary' | 'light';
+	variant?: 'primary' | 'light' | 'outlined';
 	buttonSize?: 'small' | 'medium' | 'large';
 	minSpaces?: boolean;
 }
