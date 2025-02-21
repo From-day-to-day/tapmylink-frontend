@@ -12,26 +12,26 @@
   },
   "dependencies": {
     "classcat": "^5.0.5",
-    "preact": "^10.25.4",
-    "react-icons": "^5.4.0",
-    "swr": "^2.3.0",
-    "wouter-preact": "^3.3.5"
+    "preact": "^10.26.2",
+    "react-icons": "^5.5.0",
+    "swr": "^2.3.2",
+    "wouter-preact": "^3.6.0"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.9.4",
-    "@types/node": "^22.10.5",
-    "eslint": "^9.17.0",
-    "eslint-import-resolver-typescript": "^3.7.0",
+    "@preact/preset-vite": "^2.10.1",
+    "@types/node": "^22.13.4",
+    "eslint": "^9.20.1",
+    "eslint-import-resolver-typescript": "^3.8.3",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-react": "^7.37.3",
-    "globals": "^15.14.0",
-    "prettier": "^3.4.2",
-    "stylelint": "^16.12.0",
-    "stylelint-config-standard": "^36.0.1",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.1",
+    "stylelint": "^16.14.1",
+    "stylelint-config-standard": "^37.0.0",
     "stylelint-order": "^6.0.4",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.19.1",
-    "vite": "^6.0.7"
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.1.1"
   },
   "browserslist": [
     "defaults and fully supports es6-module",
