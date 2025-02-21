@@ -5,11 +5,16 @@
 	overflow: hidden;
 }
 
+.container > *:not(:last-child) {
+	border-right: 1px solid var(--overlay-light-high);
+}
+
 .link {
 	align-items: center;
 	background-color: var(--overlay-light-high);
 	color: var(--light-color);
 	display: flex;
+	flex: 1;
 	gap: 0.5rem;
 	padding: 0.25rem 0.75rem;
 	text-decoration: none;

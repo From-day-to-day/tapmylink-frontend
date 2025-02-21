@@ -6,7 +6,6 @@
 	margin: 0;
 	max-height: 100%;
 	overflow: auto;
-	padding: 0;
 	position: fixed;
 	width: var(--max-body-width);
 	z-index: 2;

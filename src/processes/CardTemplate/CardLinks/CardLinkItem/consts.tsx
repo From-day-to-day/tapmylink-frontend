@@ -12,8 +12,10 @@ import {
 	FaXTwitter,
 	FaVk,
 	FaApple,
+	FaWhatsapp,
 } from 'react-icons/fa6';
 import { SiBoosty } from 'react-icons/si';
+import { TbBrandZoom } from 'react-icons/tb';
 
 export const iconMap: { [key: string]: JSX.Element } = {
 	'youtube.com': <FaYoutube />,
@@ -28,6 +30,11 @@ export const iconMap: { [key: string]: JSX.Element } = {
 	'vk.com': <FaVk />,
 	'apple.com': <FaApple />,
 	'boosty.to': <SiBoosty />,
+	'zoom.us': <TbBrandZoom />,
+	't.me': <FaTelegram />,
+
+	'whatsapp.com': <FaWhatsapp />,
+	'wa.me': <FaWhatsapp />,
 
 	'x.com': <FaXTwitter />,
 	'twitter.com': <FaXTwitter />,

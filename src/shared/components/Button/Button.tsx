@@ -5,6 +5,7 @@ import {
 	PropsWithChildren,
 	ForwardedRef,
 } from 'preact/compat';
+import { IconType } from 'react-icons';
 
 import styles from './button.module.css';
 
@@ -12,6 +13,8 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: 'primary' | 'light' | 'outlined';
 	buttonSize?: 'small' | 'medium' | 'large';
 	minSpaces?: boolean;
+	PreIcon?: IconType;
+	PostIcon?: IconType;
 }
 
 export const Button = forwardRef(
@@ -20,6 +23,8 @@ export const Button = forwardRef(
 			variant = 'light',
 			buttonSize = 'medium',
 			minSpaces,
+			PreIcon,
+			PostIcon,
 			...props
 		}: PropsWithChildren<Props>,
 		ref: ForwardedRef<HTMLButtonElement>,
@@ -36,7 +41,9 @@ export const Button = forwardRef(
 					props.className,
 				])}
 			>
+				{PreIcon && <PreIcon />}
 				{props.children}
+				{PostIcon && <PostIcon />}
 			</button>
 		);
 	},

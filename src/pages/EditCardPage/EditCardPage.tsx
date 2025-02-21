@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import { useParams } from 'wouter-preact';
 
-import { CardTemplate, ViewCardLink } from '@/processes';
+import { ViewCardLink, CardTemplate } from '@/processes';
 import { Button, Loader } from '@/shared/components';
 import { CARDS_API_PATH } from '@/shared/consts';
 import { useCopyCard, useLanguage } from '@/shared/hooks';
@@ -61,7 +61,6 @@ export const EditCardPage = ({ tariffData }: Props) => {
 			<div className={styles.card}>
 				<CardTemplate
 					card={cardData}
-					isEditable
 					hideFooter
 					tariffData={tariffData}
 					cacheDataKey={cacheDataKey}

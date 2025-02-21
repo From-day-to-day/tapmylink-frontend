@@ -1,0 +1,11 @@
+.logo {
+	display: block;
+}
+
+.logo__accentText {
+	fill: var(--primary-color);
+}
+
+.logo__text {
+	fill: var(--light-color);
+}

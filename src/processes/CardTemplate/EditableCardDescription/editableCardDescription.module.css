@@ -1,5 +1,5 @@
 .buttonWrapper {
 	align-items: center;
 	display: flex;
-	gap: 1rem;
+	gap: calc(var(--form-gap) / 2);
 }

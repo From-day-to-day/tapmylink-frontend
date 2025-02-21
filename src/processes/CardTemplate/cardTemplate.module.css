@@ -16,17 +16,26 @@
 
 .card__body {
 	display: grid;
-	gap: 2rem;
-}
-
-.card__links {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5rem;
+	gap: 3rem;
 }
 
 .card__footer {
 	margin-top: auto;
 	padding-top: 2rem;
+}
+
+.footer {
+	display: grid;
+	font-size: 0.75rem;
+	gap: 12px;
+	justify-items: center;
 	text-align: center;
+}
+
+.footer__link {
+	color: inherit;
+}
+
+.logoAccentText {
+	fill: var(--light-color);
 }

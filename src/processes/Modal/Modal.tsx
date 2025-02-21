@@ -4,6 +4,7 @@ import { MdClose } from 'react-icons/md';
 
 import { Button } from '@/shared/components';
 
+import { EXTRA_MODAL_SPACING } from './_consts';
 import { useCloseButtonSize, useLockScroll } from './_hooks';
 
 import styles from './modal.module.css';
@@ -42,7 +43,8 @@ export const Modal = ({
 						className,
 					])}
 					style={{
-						padding: `${closeButtonSize.height}px ${closeButtonSize.width}px`,
+						padding: `${closeButtonSize.height + EXTRA_MODAL_SPACING}px
+						${closeButtonSize.width + EXTRA_MODAL_SPACING}px`,
 					}}
 				>
 					{!hideCloseButton && (

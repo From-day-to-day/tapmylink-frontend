@@ -1,0 +1,1 @@
+export const MAX_CARD_LINK_DESCRIPTION = 50;

@@ -1,7 +1,9 @@
 .button {
+	align-items: center;
 	border-color: transparent;
 	display: inline-flex;
 	font-weight: 600;
+	gap: 0.5rem;
 	justify-content: center;
 	letter-spacing: 1px;
 	padding: 0.5em 1.25em;
@@ -42,7 +44,6 @@
 
 .button_light {
 	background-color: var(--overlay-light-high);
-	border: 1px solid var(--overlay-light-high);
 	color: var(--light-color);
 }
 

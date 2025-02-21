@@ -3,8 +3,7 @@ import { useState } from 'preact/hooks';
 import useSWRMutation from 'swr/mutation';
 import { useLocation } from 'wouter-preact';
 
-import { HelpButton } from '@/containers';
-import { Modal } from '@/processes';
+import { Modal, HelpButton } from '@/processes';
 import { Button, Form, Input } from '@/shared/components';
 import { CARDS_API_PATH } from '@/shared/consts';
 import { useFieldFocus, useLanguage } from '@/shared/hooks';
@@ -12,6 +11,7 @@ import { Card, ErrorResponse } from '@/shared/models';
 import { routes } from '@/shared/routes';
 import { trimAndMapFormData, fetcher } from '@/shared/utils';
 
+import { MAX_CARD_NAME_LENGTH, MIN_CARD_NAME_LENGTH } from './_consts';
 import { CardFormData } from './_models';
 import messages from './messages';
 
@@ -78,22 +78,26 @@ export const AddCardButton = ({ isProcessDisabled, cardsLimit }: Props) => {
 					{messages[language].creatingButtonText}
 				</Button>
 				{isProcessDisabled && (
-					<HelpButton title={messages[language].cardLimitHint(cardsLimit)} />
+					<HelpButton
+						modalDescription={messages[language].cardLimitHint(cardsLimit)}
+					/>
 				)}
 			</div>
 			<Modal open={isModalOpen} onClose={onCloseModalClick} centerPosition="xy">
-				<Form onSubmit={onAddCardSubmitForm}>
-					<div className={styles.modalFormHints}>
-						<div>{messages[language].cardNameRulesHint}</div>
-						<div>{messages[language].acceptableContentHint}</div>
-					</div>
+				<Form
+					onSubmit={onAddCardSubmitForm}
+					hints={[
+						messages[language].cardNameRulesHint,
+						messages[language].acceptableContentHint,
+					]}
+				>
 					<Input
 						ref={addCardFieldRef}
 						placeholder={messages[language].cardNamePlaceholder}
 						disabled={isAddCardMutating}
 						name="name"
-						minlength={3}
-						maxlength={50}
+						minlength={MIN_CARD_NAME_LENGTH}
+						maxlength={MAX_CARD_NAME_LENGTH}
 						pattern="^[a-zA-Z0-9]+$"
 						required
 					/>

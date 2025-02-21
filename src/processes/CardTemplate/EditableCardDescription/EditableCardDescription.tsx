@@ -3,7 +3,7 @@ import { useState } from 'preact/hooks';
 import { useRef } from 'react';
 import useSWRMutation from 'swr/mutation';
 
-import { HelpButton } from '@/containers';
+import { HelpButton } from '@/processes';
 import { Textarea, Form, Button } from '@/shared/components';
 import { CARDS_API_PATH } from '@/shared/consts';
 import { useLanguage } from '@/shared/hooks';
@@ -17,17 +17,17 @@ import messages from './messages';
 import styles from './editableCardDescription.module.css';
 
 interface Props {
-	id: number;
+	cardId: number;
 	cacheDataKey: string;
-	hasPremium?: boolean;
+	isEnabledByTariff?: boolean;
 	description?: string;
 }
 
 export const EditableCardDescription = ({
-	id,
+	cardId,
 	description,
 	cacheDataKey,
-	hasPremium,
+	isEnabledByTariff,
 }: Props) => {
 	const { language } = useLanguage();
 	const cardDescriptionRef = useRef<HTMLTextAreaElement>(null);
@@ -41,7 +41,7 @@ export const EditableCardDescription = ({
 	>(
 		cacheDataKey,
 		async (_url, { arg }) =>
-			await fetcher(`${CARDS_API_PATH}/${id}/description`, 'PATCH', arg),
+			await fetcher(`${CARDS_API_PATH}/${cardId}/description`, 'PATCH', arg),
 	);
 
 	const onSubmitDescriptionForm = async (
@@ -66,7 +66,7 @@ export const EditableCardDescription = ({
 			<Textarea
 				ref={cardDescriptionRef}
 				placeholder={messages[language].fieldDescriptionPlaceholder}
-				disabled={isMutating || !hasPremium}
+				disabled={isMutating || !isEnabledByTariff}
 				name="description"
 				onChange={onChangeDescription}
 				maxLength={MAX_DESCRIPTION_FIELD_LENGTH}
@@ -76,11 +76,13 @@ export const EditableCardDescription = ({
 			<div className={styles.buttonWrapper}>
 				<Button
 					buttonSize="small"
-					disabled={isMutating || isFormDisabled || !hasPremium}
+					disabled={isMutating || isFormDisabled || !isEnabledByTariff}
 				>
 					{messages[language].saveButtonText}
 				</Button>
-				{!hasPremium && <HelpButton title={messages[language].noPremiumHint} />}
+				{!isEnabledByTariff && (
+					<HelpButton modalDescription={messages[language].noPremiumHint} />
+				)}
 			</div>
 		</Form>
 	);

@@ -1,0 +1,35 @@
+.container {
+	display: grid;
+	gap: var(--form-gap);
+	justify-items: flex-start;
+}
+
+.links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.links_disabled {
+	opacity: var(--disabled-form-opacity);
+	pointer-events: none;
+}
+
+.links_list {
+	display: grid;
+	max-width: 30rem;
+	width: 100%;
+}
+
+@media (width <= 600px) {
+	.links {
+		display: grid;
+		width: 100%;
+	}
+}
+
+.submitFormButtonWrapper {
+	align-items: center;
+	display: flex;
+	gap: calc(var(--form-gap) / 2);
+}

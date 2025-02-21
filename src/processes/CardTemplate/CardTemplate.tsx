@@ -1,15 +1,19 @@
-import { CardColorWrapper } from '@/shared/components';
+import cc from 'classcat';
+
+import { Logo } from '@/processes';
+import { CardColorWrapper, ExternalLink } from '@/shared/components';
+import { useLanguage } from '@/shared/hooks';
 import { Card, Tariff } from '@/shared/models';
 
-import { CardLink, EditableCardLink } from './CardLink';
+import { CardLinks } from './CardLinks';
 import { EditableCardDescription } from './EditableCardDescription';
+import messages from './messages';
 
 import styles from './cardTemplate.module.css';
 
 interface Props {
 	card: Card;
 	cacheDataKey?: string;
-	isEditable?: boolean;
 	hideFooter?: boolean;
 	tariffData?: Tariff;
 	isFullScreen?: boolean;
@@ -17,12 +21,12 @@ interface Props {
 
 export const CardTemplate = ({
 	card,
-	isEditable,
 	hideFooter,
 	tariffData,
 	isFullScreen,
 	cacheDataKey,
 }: Props) => {
+	const { language } = useLanguage();
 	return (
 		<CardColorWrapper
 			className={styles.card}
@@ -33,34 +37,42 @@ export const CardTemplate = ({
 				<div>
 					<h2 className={styles.card__name}>{card.name}</h2>
 				</div>
-				{isEditable && cacheDataKey ? (
+				{cacheDataKey ? (
 					<EditableCardDescription
-						id={card.id}
+						cardId={card.id}
 						description={card.description}
 						cacheDataKey={cacheDataKey}
-						hasPremium={tariffData?.hasCardDescription}
+						isEnabledByTariff={tariffData?.hasCardDescription}
 					/>
 				) : (
 					card.description && (
 						<div className={styles.card__description}>{card.description}</div>
 					)
 				)}
-				{card.links && (
-					<div className={styles.card__links}>
-						{card.links.map((link) => (
-							<>
-								{isEditable ? (
-									<EditableCardLink title={link.title} url={link.url} />
-								) : (
-									<CardLink title={link.title} url={link.url} />
-								)}
-								{` `}
-							</>
-						))}
-					</div>
-				)}
+				<CardLinks
+					cardId={card.id}
+					links={card.links}
+					cacheDataKey={cacheDataKey}
+					tariffData={tariffData}
+				/>
 			</div>
-			{!hideFooter && <div className={styles.card__footer}>logo</div>}
+			{!hideFooter && (
+				<div className={cc([styles.card__footer, styles.footer])}>
+					<div className={styles.footer__logo}>
+						<Logo accentTextClass={styles.logoAccentText} />
+					</div>
+					<div>
+						{messages[language].footerText}{' '}
+						<ExternalLink
+							className={styles.footer__link}
+							href={`mailto:${import.meta.env.VITE_FEEDBACK_EMAIL}`}
+							rel="noopener noreferrer"
+							target="_blank"
+							text={import.meta.env.VITE_FEEDBACK_EMAIL}
+						/>
+					</div>
+				</div>
+			)}
 		</CardColorWrapper>
 	);
 };

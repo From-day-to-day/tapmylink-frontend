@@ -2,7 +2,7 @@ import cc from 'classcat';
 import { FaCheck } from 'react-icons/fa6';
 import useSWRMutation from 'swr/mutation';
 
-import { HelpButton } from '@/containers';
+import { HelpButton } from '@/processes';
 import { CARDS_API_PATH } from '@/shared/consts';
 import { ECardTheme } from '@/shared/enums';
 import { useLanguage } from '@/shared/hooks';
@@ -82,7 +82,7 @@ export const EditCardTheme = ({
 			</div>
 			{!tariffData?.hasCardPalette && (
 				<div>
-					<HelpButton title={messages[language].themePremiumHint} />
+					<HelpButton modalDescription={messages[language].themePremiumHint} />
 				</div>
 			)}
 		</div>

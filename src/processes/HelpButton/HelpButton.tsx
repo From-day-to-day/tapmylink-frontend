@@ -5,10 +5,10 @@ import { Modal } from '@/processes';
 import { Button } from '@/shared/components';
 
 interface Props {
-	title: string;
+	modalDescription: string;
 }
 
-export const HelpButton = ({ title }: Props) => {
+export const HelpButton = ({ modalDescription }: Props) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const onOpenModalClick = () => setIsOpen(true);
@@ -25,7 +25,7 @@ export const HelpButton = ({ title }: Props) => {
 				<FaQuestion />
 			</Button>
 			<Modal open={isOpen} onClose={onCloseModalClick} centerPosition="xy">
-				{title}
+				{modalDescription}
 			</Modal>
 		</>
 	);

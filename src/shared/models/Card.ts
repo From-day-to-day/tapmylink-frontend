@@ -10,6 +10,8 @@ export interface Card {
 
 export interface CardLink {
 	id: number;
+	cardId: number;
 	url: string;
-	title?: string;
+	description?: string;
+	position: number;
 }
