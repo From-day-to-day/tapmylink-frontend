@@ -5,7 +5,7 @@ ARG VITE_FEEDBACK_EMAIL
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm i
+RUN npm i --ignore-scripts
 COPY . .
 RUN npm run build
 
