@@ -23,6 +23,7 @@ jobs:
           docker build \
             --build-arg VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }} \
             --build-arg VITE_FEEDBACK_EMAIL=${{ secrets.VITE_FEEDBACK_EMAIL }} \
+            --build-arg PROXY_PASS=${{ secrets.PROXY_PASS }} \
             -t vsevo1od/from-day-to-day:tapmylink-frontend-${{ github.ref_name }} .
 
       - name: Push Docker image
