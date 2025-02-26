@@ -16,6 +16,6 @@ ENV PROXY_PASS_URL=${PROXY_PASS_URL}
 COPY --from=0 /app/dist /usr/share/nginx/html
 COPY nginx.conf.template /etc/nginx/nginx.conf.template
 
-RUN envsubst '${PROXY_PASS_URL}' < /etc/nginx/nginx.conf.template > /etc/nginx/conf.d/default.conf
+RUN envsubst '$PROXY_PASS_URL' < /etc/nginx/nginx.conf.template > /etc/nginx/conf.d/default.conf
 
 CMD ["nginx", "-g", "daemon off;"]
