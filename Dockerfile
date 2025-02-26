@@ -13,8 +13,6 @@ FROM nginx:alpine
 ARG PROXY_PASS_URL
 ENV PROXY_PASS_URL=${PROXY_PASS_URL}
 
-RUN echo "PROXY_PASS_URL is ${PROXY_PASS_URL}"
-
 COPY --from=0 /app/dist /usr/share/nginx/html
 COPY nginx.conf.template /etc/nginx/nginx.conf.template
 
